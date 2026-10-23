@@ -1,0 +1,12 @@
+pipeline:
+  stages:
+    - steps:
+        - run:
+            script: "cd SmallestSpringApp \r
+
+              mvn -B clean package \r
+
+              mvn -B test"
+            shell: bash
+          name: build_stage
+          id: build_stage
