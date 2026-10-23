@@ -3,13 +3,17 @@ pipeline:
     - steps:
         - run:
             script: echo "hello world"
+          id: run_1
+          name: run_1
         - name: BuildStage
           id: BuildStage
           build:
             uses: buildAndPushToDocker
             with:
-              connector: connector_Docker
+              connector: connector_DockerRegistry_fa09
               repo: master
               tags:
                 - 1.0.0
               caching: true
+      id: stage_1
+      name: stage_1
