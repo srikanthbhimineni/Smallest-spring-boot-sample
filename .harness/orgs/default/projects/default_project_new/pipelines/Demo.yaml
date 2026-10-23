@@ -3,3 +3,13 @@ pipeline:
     - steps:
         - run:
             script: echo "hello world"
+        - name: DockerBuild
+          id: DockerBuild
+          build:
+            uses: buildAndPushToDocker
+            with:
+              connector: connector_DockerRegistry_fa09
+              repo: https://github.com/srikanthbhimineni/Smallest-spring-boot-sample.git
+              tags:
+                - 1.0.0
+              caching: true
